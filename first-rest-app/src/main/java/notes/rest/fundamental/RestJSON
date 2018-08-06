@@ -1,0 +1,57 @@
+XML over HTTP is also known as XML Remote Procedure Call.
+
+Around 2003, another standard around XML which became very popular is known
+as SOAP. (Simple Object Access Protocol).
+
+The standard defined the structure of the message package that is exchanged between the consumer and the
+producer. It also defines the security, transactions and other security standards.
+ 
+
+Need to understand what SOAP is and what kind of advantages it provides over XML RPC.
+
+XML technologies worked very well till the point we saw emergence of mobile technologies.
+
+When these mobile technologies emerged then the developers started to complain about the usage of XML 
+and SOAP protocol.
+
+XML Problem #1
+XML is very heavy in network traffic. Hence a device which is working on 3G then bandwith would be 
+the greatest challenge.
+
+XML Problem #2
+Parsing of XML is CPU intensive and memory intensive.
+
+XML Problem #3
+Slow performance of XML on browser front end not desired.
+
+XML Problem #4
+It also made the code very complex.
+
+XML Problem #5
+Because of XML processing it made the mobile batteries drain faster.
+
+XML Problem #6
+Standards and versions of standards caused confusion and complexity.
+
+To solve these above problems JSON came into Picture
+
+JSON - Java Script Object Notation.
+
+Like XML it is a data format. It is launched in 2002.
+
+However it became quite popular in 2006 when Google and Yahoo launched it's rest API's.
+
+Rest Stands for Representational state transfer.
+
+Quick History About Rest:
+Roy Fielding in his doctorate dissertation in year 2002, 
+
+ 
+
+
+
+
+
+
+
+

@@ -1,0 +1,303 @@
+Usage of HTTP with JSON may or may not be compliant with Restful Architecture
+
+What is the reason for the above statement?
+
+In order for an architecture to be Restful the developer has to follow
+============== ============================================
+6 design Rules also known as Rest Architectural Constraints
+============== ============================================
+
+These 6 architectural constraints has been described in Roy Felding doctorate theses.
+
+-----------------------------------------------------------------
+1# Design Rule - Client Server >> Helps in seperation of concerns
+-----------------------------------------------------------------
+The architecture must follow client server architecture principles.
+
++++++++++++++++++++++++++
+Benefits of this approach:
++++++++++++++++++++++++++
+
+In a typical application environment we have a client and a server.
+
+The client connects to the server by a uniform interface.
+
+What this type of architecture leads to is seperation of concerns.
+
+If we are developing a client server application.
+then we have two types of concerns we need to take care of 
+1. Server side - which is the API Provider
+2. Client side - which the API consumer
+
+
+Server API Provider
+When we are developing server side
+application we would have to address 
+concerns of the server side for example
+1. Performance of the application
+2. Scaling of the application
+3. Data caching of the application
+4. Authentication and Authorization of 
+5. Data Security 
+5. Databases.
+
+The idea is when you are building server side application you have these set of concerns which 
+needs to be addressed.
+
+When you are developing the client side application (Consumer) then you have to bear in mind
+the client is the end user and is providing the values. Bearing that requirement in mind 
+they have a seperate set of concerns which needs to be taken care of.
+1. User Experience: What kind of user experience we need to deliver to the client.
+2. User Interface : That is also a concern to the client. 
+3. Mutliple Form Factor: Would it be able to support multiple devices.
+
+
+Thereby when we are designing application then we would have to bear in the mind that 
+SERVER AND CLIENT DO NOT SHARE THE SAME PROCESS -->> IT MEANS THAT DO NOT SHARE THE SAME
+PIECE OF CODE.
+
+THIS LEADS TO THE SIMPLE CONCEPT: SERVER CODE IS DECOUPLED FROM THE CLIENT CODE.
+THUS SERVER CHANGES ARE NOT IMPACTING THE CLIENT CHANGES AS LONGER THE UNIFORM INTERFACE REMAINS
+THE SAME.
+
+
+=========================================================================================
+2# Design Rule - Uniform Interface : CLIENT AND SERVER SHARE A COMMON TECHNICAL INTERFACE
+=========================================================================================
+THERE ARE 4 GUIDING PRINCIPLES UNDER THIS CONSTRAINT:
+That suggests the use of well defined interface between the client and server.
+
+What is an INTERFACE?
+An interface is a contract for communication between the client and the server.
+By technical interface it means that there is no businesss contract.
+
+The contract is defined by using the HTTP methods and media types.
+
+The benefit of this mechanism is that decouples the architecture.
+
+Thereby components can evolve independently as long as they adhere to the contact.
+
+          ********************
+There are 4 guiding principles related to the uniform interface
+          ********************
+--------------------------------------
+1. Identity of the resource. (URI/URL)
+--------------------------------------
+Here the idea is the REST API exposes the resources and to manipulate the state of the resources
+the client use the URI/URL.
+
+PROTOCOL : HTTP
+METHOD   : GET 
+URL      : http://www.google.com/vacations
+
+THE IDENTITY OF THE RESOURCE FOR EXAMPLE IS:
+HTTP/1.1 GET http://www.google.com/vacations
+This will help us to find the vacations packages from google.
+
+another example: We are interested in the reviews for the vacation id = 21 offered by the google
+application
+HTTP/1.1 GET http://www.google.com/vacations/21/reviews
+---------------------------------
+2. Representation of the resource
+---------------------------------
+On the server side the data is managed by the databases.
+So there is some form of database representation of the resource on the server side.
+On the other hand the client may need the data in the XML format or JSON format or TXT format
+or any other format. 
+So the idea is that the client receives the data in some other format which might be different
+from the format which exists in the server side.
+
+---------------------------------------
+3. Self descriptive messages - metaData.
+---------------------------------------
+The idea here is that the request and responses that are send between the client and server.
+have enough meta-data for each end to process the information in the request or response.
+This meta-data is transferred by the way of HTTP headers.
+
+The meta data set by the server side is:
+Content-Type
+HTTP Status code
+Host
+
+For example the response that the server sends the meta data that would exists
+would the information as Content-Type. The Content-Type may indicate to the client
+that the response contains XML type or JSON type etc.
+
+Thereby the client can select the right parser for the content.
+
+HTTP Status code in the response: 
+Tells the status of the request or the response.
+
+The idea is that the status code can be setup to 404 if a particular resource is not found.
+
+If everything is fine then the status code would be set to 200.
+
+So the client can use this status code to understand the status of the response of the request.
+
+Host : Typical which host is the response coming from.
+
+From the client end the client can also set the meta-data.
+The client can set the meta-data for the Accept: What kind of representation the client can accept
+So the client can send in the metadata such that Accept = Application/Json
+
+--------------------------------------------
+4. HyperMedia mean Response = Data + Actions  AKA HATEOAS
+--------------------------------------------
+
+It means that the server not only sends the data but the possible actions that the client can 
+take on the data.
+
+This is also referred to HATEOAS - HyperMedia As the Engine Of Application State
+
+Summary :
+Uniform Interface : Technical communication contract and not a business contract between the client
+and the server
+1. Resource Identity
+2. Resource Representation 
+3. Self describing messages
+4. HyperMedia / HATEOAS
+
+
+That suggests the use of well defined interface between the client and server.
+
+++++++++++++++++++++++++++++++
+3# Design Rule = Statelessness
+++++++++++++++++++++++++++++++
+The server must not manage the state of the applications.
+
+What aspects you have to keep in mind with state perspective while designing restful API's
+
+In a typical web application when a client connects to the back end resource through the mid-tier
+for example tomcat creates a client session and the client session manages the client state within 
+the mid tier.
+
+For REST API's this is not acceptable of managing the state of the client. 
+Every time the request comes in from the client it shall be treated as a fresh request.
+Hence when designing REST API's we have to bear in mind that each
+ 
+1. Each client request is independent 
+2. Information send from the client must have all the information which the server needs to process
+that request.
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Downside of StatelessNess
+~~~~~~~~~~~~~~~~~~~~~~~~~
+1. It has negative impact on performance
+2. Chattiness
+3. Higher Data Traffic(Impacts scalability)
+
+Summary :
+1. No state management in mid-tier/server
+2. All calls from the client are independent
+3. Client sends all the information in request that the server will need to process the request.
+
+========================
+4# Design Rule - Caching
+======================== 
+The server controls the caching of responses by the way of HTTP headers.
+
+Which HTTP headers are used for Caching
+
+In a conventional application system how the application is designed to handle Caching?
+Local Cache Usage:
+We have a browswer which maintains the local cache.
+Responses coming from the browser to the server is written to a file system.
+So in the same request the browser checks whether it has a cached response instead of going to the 
+server.
+
+Caching might be a solution to some of the problems which the Statelessness constraint poses
+1. It has negative impact on performance
+2. Chattiness
+3. Higher Data Traffic(Impacts scalability)
+
+Hence when caching is imposed then we
+1. get high performance
+2. higher scalability
+3. Reduce chattiness
+
+The caching constraint warrants that it should mark the service to it's consumer must be explicitly
+labeled as cacheable or non-cacheable.
+
+Caching is controlled by the server by using the HTTP headers. 
+1. Cache-Control - Cache-Control directive will allow the server to define the  policy of the cache.
+	Who can cache the data. 
+	How long the data can be cached.
+	under what conditions the data can be cached.
+	All these are contained within the cache control header.
+	Example: private;max-age=60. 
+	What this means is that the server is suggesting that the data be only cached by the client 
+	and not by any intermediary because it is intended for a single user. and the max-age of the 
+	cache data is 60 seconds. After 60 seconds the client would have to resubmit the request to
+	fetch the data. 
+2. Expires - Tells when the resource will get expired.
+
+3. Last-Modified - Tells the server when was the last time cached resource was modified
+
+4. Etag - Can be understood with an example.
+	Associates a unique identifier with the response.
+	If the client request details about vacation id=21 then the result is send back.
+	If the client request details about vacation id=22 then the result is send back.
+	
+	The idea here is that the caching cannot be done with the URL.
+	It also needs to take into consideration the parameter 'id'
+	
+	That is where the Etag comes into play. It tries to associate an unique identifier with the response.
+	So in this case 
+	for the first case the Etag value = 1 for id=1
+	for the second case the Etag value =2  for the id=2
+
+
+These headers are set by the server and leveraged by the client.
+
+Summary:
+1. Caching counter balances the statelessness
+2. Caching can occur on server, client or any intermediary
+3. Server provides directive whether it is cacheable or non-cacheable
+
+
+===============================
+5# Design Rule - Layered System
+===============================
+Your architecture should have multiple layers and each of these layers should be manageable
+independently.
+
+The layered system constraint states that the client server architecture should comprise of various
+layers.
+
+summary 
+1. Rest architecture should consists of multiple layers.
+2. Each layer can change independent of the other layers.
+3. Client must not directly connect to the app server
+
+
+***************************************
+Benefits of Layered System Architecture
+***************************************
+
+==================================================
+6# Design Rule - Code on demand [This is optional]
+==================================================
+The server can also send some code along with the data which can be executed by the client.
+Server can extends client functionality by sending some code.
+
+In other words the client in response to the request is not only sending data but also sending 
+some code component.
+
+
+
+How do I know if my current Architecture is RestFul?
+
+This is by understanding what level of maturity these enterprise systems have achieved.
+
+To estimate the maturity of an enterprise use the Richardson Maturity Model.
+
+In the Richardson Maturity Model the enterprise gets assigned a score of 0 to 3.
+
+ 
+
+ 
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+Rest is an architectural style that tackles challenges of building scalable rest services
+
+
+Not a protocol but an Architectural principle for managing state information.
+
+Used in Web applications
+
+Overcome implementation difficulties in SOAP
+
+Easy way to retrieve information regardless of protocol
+
+==================================
+Basic Principle: Uniform Interface
+==================================
+All resources are identified by Uniform Resource Identifier(URI)
+
+HTTP REST resources represented in some media types such as XML, JSON and RDF
+
+
+Restful resources are self descriptive which gives enough information of how to process request
+
+
+Client interacts with servers through hypermedia, dynamically provided by servers.
+
+Client's dont need to know how to interact with Restful services:
+Principle of HATEOS(HyperMedia as Engine of Application State)
+
+==================================
+Basic Principle: Client & Server
+==================================
+By Seperating Rest entities such as client and server. It reduces complexity of REST principle
+show clear boundaries between server and client
+
+This decoupling will help developers concerntrate on client and server independently
+
+
+Help to manage different roles for client and server.
+
+==================================
+Basic Principle: Stateless
+==================================
+
+In REST principles, SERVER will not keep any state about client session on server side.
+Two calls are made to server from single client, server will not identify whether both the calls
+came from the same client or not.
+Every request is independent and new.
+
+Based on URL, HTTP headers and request body, including parameters, operation might be changed 
+on server side.
+
+==================================
+Basic Principle: Cachable
+==================================
+With restful webservice client can cache any response coming from server.
+
+Server can mention how and for how long it can cache responses.
+
+Caching option, client uses responses instead of contacting server again.
+
+caching will improve scalability and performance by client-server interactions all time
+
+REST leverages HTTP it inherits all caching properties that HTTP offers.
+
+==================================
+Basic Principle: Layered System
+==================================
+Server can hide it's identity 
+
+client would never come to know which server they are dealing with
+
+gives more security control by providing intermediate servers and supports loading-balancing
+feature
+
+Intermediate servers can improve scalability and performance through load balancing 
+and shared caches.
+
+==================================
+Basic Principle: Code On Demand
+==================================
+Considered optional Principle
+
+Servers can extend functionality of clients by transferring executable code
+
+Example, Javascript can provided to web based clients to customize functionality
+
+Reduces visibility of client side this constraint is optional
+
+Not all APIs need this feature.
+
+==================================
+Basic Principle: in Depth
+==================================
+
+Rest is used over HTTP
+
+Rest doesn't need to be tied to any specific protocol
+
+HTTP rest use GET, POST, PUT and delete methods to change state of resources we access.
+
+
+Other HTTP methods, such as OPTIONS, HEAD, CONNECT, and TRACE used for more advanced 
+options.
+
+Example for caching and debugging purposes.
+
+Most servers disabled advanced methods for security and simplicity reasons can enable 
+them by adjusting server configuration files.
+
+JSON used as primary media type for major applications use only JSON media type 
+for our web service calls.
+
+
+
+
+
+
+
+
+

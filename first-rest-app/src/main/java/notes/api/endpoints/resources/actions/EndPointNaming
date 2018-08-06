@@ -1,0 +1,87 @@
+In order to invoke the API we need the endpoint or URL
+
+For the given URL
+
+https://api.walmart.com/v1/items
+
+Here https://api.walmart.com is the BASE URL
+
+Here 'items' is the resource. This is the resource on which we will carry out CRUD operations
+
+'v1' is the version. For the time being let's ignore version
+
+
+Hence the API Consists of 3 parts
+1. BASE URL = THIS WILL REMAIN THE SAME IRRESPECTIVE OF WHICH EVER API WE CALL OF THAT WEBSITE
+2. VERSION  = THIS IS THE VERSION OF THE API
+3. RESOURCE = IS THE RESOURCE ON WHICH WE MIGHT NEED TO PERFORM AN OPERATION
+
+Best PRACTICES FOR BASE URL
+1. AVOID USING YOUR WWW DOMAIN FOR API. IF POSSIBLE http://www.acme.com should be avoided
+2. KEEP YOUR BASE URL SIMPLE. THE API IS CATERING TO DEVELOPERS THEY SHOULD BE ABLE TO REMEMBER THE BASE URL.
+3. IF POSSIBLE USE A SUB DOMAIN. EXAMPLE: https://api.twitter.com.  Here 'api' is the sub-domain.
+4. Or USE A SERERATE DOMAIN IF WE CAN AFFORD IT. EXAMPLE. https://api.walmartlabs.com
+
+For THE RESOURCES FOLLOWING RULES ARE APPLICABLE
+
+1. NEVER USE VERBS FOR RESOURCES BUT NOUNS FOR EXAMPLE:
+Walmart
+/items - for collections of items
+/items/{id} - for a particular item
+
+LinkedIn
+/people - for collection of people 
+/people/{id} - for a paricular person information
+
+
+/programmes - for collection of programmes being telecast 
+/programmes{id} - for a particular programme information
+
+Hence never it should getProgrammes or getPeople or getItems.
+
+USE NOUNS TO IDENTIFY RESOURCES
+USE PLURAL FOR RESOURCES.
+
+WHEN WE ARE HANDLING RESOURCES THEN WE ARE USING NOUNS TO NAME THEM
+
+SO HOW DO WE NAME RESOURCES WHICH DO NOT PERFORM ANY CRUD OPERATIONS BUT REPRESENT 
+ACTIONS
+FOR EXAMPLE
+calculatingTax - that is not a crud operation but an action
+generating some kind of report is not a crud operation.
+
+Uber 
+has price /estimates/price API.
+twitter 
+has /friendships/lookup
+walmart
+/search?query
+
+Associations:
+Resources contains other resources
+Managing resource(s) within a resource
+
+Recommendation when handling association between resources
+is to avoid deep nesting
+Hence maximum nesting recommended = 3
+If there is any situation wherein we might need to go beyond nesting depth of 3
+we can use a sub query
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

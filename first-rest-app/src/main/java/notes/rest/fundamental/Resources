@@ -1,0 +1,105 @@
+In the real world or Object is described by a set of attributes.
+
+For example a Car is represented by the following attributes:
+1. Make - BMW
+2. Year - 2018
+3. Vehicle Identification Number: 1213
+4. Owner - 
+5. Color etc...
+
+In the software system these attributes are managed in a database.
+
+
+The state of the resource may change for example: 
+The owner of the car may change on the context that it is sold to someone else.
+
+And that state change is also managed in some sort of database. 
+
+Thus there maybe multiple cars stored in some database.
+
+Now let's consider an application known as 'car owner tracking' needs some data to know specific owner of a 
+car in the database.
+
+It is simply able to do a query with the VIN number.
+
+And what it receives is the representation state of the car identified by the vehicle number.
+
+So what happened is the representational state transfer happened from the back end to the client.
+
+
+
+What is the format for the Representation State?
+It can be a row in the database and then it can be driven into some form of logic which can represent it 
+in any format which we need to specify.
+
+Restful API is not bound to any data format but can churn out any format depending on the client's 
+requirements.
+
+Thus it can receive request in any format and send out response in any format.
+
+===================================================
+The million Dollar Question: When an API is restful
+===================================================
+When it follows two things:
+The Rest Architectural Style and the Set of Principles.
+
+Keep in mind: rest is not a specific Technology.
+Keep in mind: rest is not a standard
+
+
+==================================================================
+The million Dollar Question: Relationship between HTTP and Rest API
+==================================================================
+
+The browser of client uses the following things to make the following request:
+within the (HEADER + REQUEST)
+1. URL
+2. Parameters 
+3. Verb usage
+	GET 
+	POST
+	PUT
+	DELETE
+	PATCH
+	HEAD
+	TRACE 
+	OPTIONS
+
+The web server responses back the data in the (Header + Response)
+
+Header has one field called the Response Code
+For example: 
+200 - Everything is OK 
+404 - Not found 
+500 - Error 
+
+Restful API's thus uses Header, Request, Response and Response Codes
+
+There is no standard which specifies REST has to use HTTP for it's use. 
+HTTP is the most preferred way of developing REST applications.
+
+Summary:
+#1
+Representations have representational state managed in the back end
+
+#2
+Resources are objects things such as entities cars bank account information etc
+
+#3
+Resources undergo state changes such as you may deposit money in the bank account
+hence there the net balance in the account increases etc
+
+This money deposit act has left a change in the bank account
+
+#4
+Rest is not an a standard but an architectural style and a set of guiding principles
+
+#5
+Rest may use HTTP protocol but not required to use it.
+
+ 
+ 
+ 
+
+
+

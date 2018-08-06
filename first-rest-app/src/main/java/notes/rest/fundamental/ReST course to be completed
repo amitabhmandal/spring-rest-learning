@@ -1,0 +1,12 @@
+Restful API Requirements:
+
+filtering, 
+pagination and 
+security
+
+secure your web services, versioning, 
+mainitaining backward compatability
+
+including tips for load testing
+
+optimisation and scaling web services using techniques such as caching and clustering

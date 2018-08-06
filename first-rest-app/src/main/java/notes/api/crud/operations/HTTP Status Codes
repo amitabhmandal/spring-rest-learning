@@ -1,0 +1,25 @@
+An HTTP Sever response back to the client request with the response data.
+It also send the HTTP response status in the http header. There are two parts to it
+
+First part is the status code
+
+And the second part is the response text which is the short text meant for humans
+in the client side.
+
+The status code is a 3 digit number.
+The first digit in the 3 digit status code is the classifier for the response
+
+There are 5 such classifications
+1XX informational 100 Continue
+2XX Success       200 Ok
+3XX Redirection   307 Temporary Redirect
+4XX Client Error  404 Not Found [Client Side error in sending the request]
+5XX Server Error  505 [Internal Server Error] [Server side error in processing the request]
+
+
+All HTTP codes are mentioned in RFC2616
+https://www.ietf.org/rfc/rfc2616.txt
+
+
+
+
