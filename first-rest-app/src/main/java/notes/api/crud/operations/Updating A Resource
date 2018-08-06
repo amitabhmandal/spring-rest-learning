@@ -1,0 +1,34 @@
+We can use a PUT method or PATCH Http method to update a resource
+
+
+PUT - We should use PUT when we want to update all attributes of an existing resource
+effectively replace.
+
+We can also use PUT to create a new resource however it is not recommended.
+
+
+PACTH is used when are updating part of the resource and not all of it.
+
+
+In case of Success
+Code = 200
+Code = 204 No content
+Code = 201 Created 
+
+We can send back the resource which is optional back in the body of the response
+OPTIONAL
+
+No need to send the link - OPTIONAL
+
+We dont want to send back the information as we are expecting that they have already
+the information which is being send for update hence it does not make any sense to 
+send back the information and waste network band-width
+
+
+In case of failure there is no difference between POST as it can be handled in the same
+fashion.
+
+
+
+
+

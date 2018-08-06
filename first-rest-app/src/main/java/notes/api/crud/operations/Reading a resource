@@ -1,0 +1,15 @@
+Reading a resource
+
+use GET method
+
+GET Reads/Retrieves a resource/collection or specific resource
+/vacations or /vacations/{id}
+
+Sucess Code = 200 OK Sends back the response in requested format
+GET http://api.acme.com/vacations/121
+
+In case of failure the API should respond back
+4XX - Client Error Bad Request ex 404 resource not found
+5XX - Server Error 500 Internal Server Error
+
+

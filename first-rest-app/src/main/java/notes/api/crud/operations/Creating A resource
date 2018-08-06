@@ -1,0 +1,23 @@
+For creating a resource we shall use POST
+
+when creation a resource then obviously the client shall send the entire request
+by using the following URL's
+
+/vacations or /vacations/{id}/reviews
+
+Whenever the request is successful then the server shall a status code of 201
+
+Along with 201 
+Option 1:
+it has the two options of providing the information back to the client 
+it can send back the complete URL of the resource created 
+example 
+/vacations/121/reviews/2
+
+option 2:
+or May return the entire new object
+
+In case of failure
+it will send the http response code such 4XX(Client Error) or 5XX(Server Error)
+along with the error message
+
