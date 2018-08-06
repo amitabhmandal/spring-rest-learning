@@ -1,0 +1,38 @@
+It is always a good practise to provide multiple data formats
+
+It is always benenficial to design your api's in such a way that the API can support
+multiple formats.
+
+There are 3 ways in which the Application developer or the API client 
+can request to send back data in a specific format
+==========================
+OPTION 1: Query Parameter:
+==========================
+We can build an API Which can allow the client to use the query parameter 
+For example
+/search?q=iphone&format=xml
+
+==============================
+OPTION 2: HTTP HEADER: ACCEPTS
+==============================
+
+Accepts : application/json
+
+=================================
+OPTION 3: Resource Format Suffix:
+=================================
+For example to get the programme listing for today we can suffic the resource with the
+format required.
+/programmes/schedules/fm/today.json
+
+Use of HTTP Accept header is not so common
+Most providers set the default format as json
+
+
+Irrespective of which format type the client might have requested
+our response should contain the following information
+
+Content-Type:
+HTTP Status code : 415 if the client does not support the requested format
+In the documentation of your API, we should list all supported formats.
+ 
