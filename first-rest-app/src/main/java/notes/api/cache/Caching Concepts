@@ -1,0 +1,78 @@
+BENEFITS OF CACHING
+1. It improves performance
+2. It scalability and throughput of the application or API
+
+When we mean scalability we mean that transactions be handled by database from 30/sec to 50/sec.
+
+The idea of caching is if it as close as to the API consumer higher shall be the performance and scalability
+
+
+
+WHAT TO CACHE?
+We need to keep in mind three factors
+1. Speed of Data Change
+2. Time Sensitivity of the data you are caching
+3. Security of the data.
+
+Static contents 
+Speed of Data Change: such as HTML/ JPEG/ PDF etc are not prone to change as frequently and they do not contain
+time sensitive data : They do not contain any time sensitive data 
+Security : it is not an issue for them
+Thus they can be cached for longer period of times.
+
+With API we are dealing with dyanamic data and not static data.
+For dynamic data these factors(Speed of change / time sensitivity / security) is very critical.
+
+Let's take a couple of examples
+
+Example 1: Stock Market
+Speed of Change :is very rapid 
+Time Sensitivity:to make the latest bid we need always the latest information
+Security        : is important since we dont want any one else to know which stock options are trading on.
+
+Example 2: news articles
+Speed of Change : articles are published on minutes basis
+Time Sensitivity: It is not time sensitive in the sense that even if we dont read then it will be a greater loss
+Security        : It is not a problem since all the articles are published in the public domain
+
+Example 3: Customer profile
+Speed of Change : The data might not be changing on a daily basis
+Time Sensitivity:If the customer data is changing and the profile is not reflecting in the call it might not
+be a big deal but for some enterprises it might be a big deal
+Security        : It is very high for customer profile.
+
+
+Which component shall control the caching?
+Answer: OUR API
+
+What to Cache?
+Depends on three factors discussed above and depending on it we should be caching information.
+ 
+Who can cache?
+Whether our application can cache or not or intermediaries can cache or not or API can cache or not
+
+
+For how long the data is cached for?
+It depends on the factor of speed of change. If it is not being changed frequently then we can cache it for
+longer times.
+
+
+CACHE CONTROL DIRECTIVES
+They are present in rfc2616
+https://tools.ietf.org/html/rfc2616#section-13
+
+They allow the API developer or designer to control the caching behavior of the application.
+With the cache control directives the API designer can control 
+1. Who can cache
+2. How long the data can be cached for
+3. under what conditions the data can be cached
+
+Cache control header can be setup with multiple directives.
+These directives can be used as a comma seperated list.
+
+
+
+
+
+
+
